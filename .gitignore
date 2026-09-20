@@ -13,3 +13,6 @@ coverage.xml
 htmlcov/
 *.log
 
+
+.env
+.env.*
