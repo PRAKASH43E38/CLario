@@ -13,7 +13,7 @@ def build_provider_router() -> ProviderRouter:
     if settings.gemini_api_key:
         providers.append(GeminiProvider(settings.gemini_api_key))
     if settings.groq_api_key:
-        providers.append(OpenAICompatibleProvider("groq", settings.groq_api_key, "https://api.groq.com/openai/v1", "llama-3.3-70b-versatile"))
+        providers.append(OpenAICompatibleProvider("groq", settings.groq_api_key, "https://api.groq.com/openai/v1", "llama-3.3-70b-specdec"))
     if settings.openrouter_api_key:
         providers.append(OpenAICompatibleProvider("openrouter", settings.openrouter_api_key, "https://openrouter.ai/api/v1", "openai/gpt-4o-mini"))
     if settings.mistral_api_key:

@@ -26,7 +26,7 @@ def _decode_json(text: str, schema: type[Any]) -> Any:
 class GeminiProvider(LLMProvider):
     name = "gemini"
 
-    def __init__(self, api_key: str, model: str = "gemini-2.5-flash") -> None:
+    def __init__(self, api_key: str, model: str = "gemini-flash-latest") -> None:
         self.api_key = api_key
         self.model = model
 

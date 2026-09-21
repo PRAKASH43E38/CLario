@@ -1,4 +1,6 @@
 import asyncio
+import sys
+sys.path.insert(0, '/home/prakash/Desktop/deep/backend')
 from app.ai.router import build_provider_router
 from app.schemas.learning import RoadmapPlan
 
