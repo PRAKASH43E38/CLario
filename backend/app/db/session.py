@@ -28,13 +28,17 @@ def get_engine():
 
     try:
         engine = create_engine(settings.database_url, pool_pre_ping=True)
-        # Test connection
         with engine.connect() as conn:
             conn.exec_driver_sql("SELECT 1")
+        logger.info("Connected to MySQL database.")
         return engine
     except Exception as e:
-        logger.error(f"CRITICAL: Could not connect to MySQL database at {settings.database_url}: {e}")
-        raise RuntimeError(f"Database connection failed. Please ensure MySQL is running. Error: {e}")
+        logger.warning(f"MySQL unavailable ({e}). Falling back to SQLite for development.")
+        return create_engine(
+            "sqlite://",
+            poolclass=StaticPool,
+            connect_args={"check_same_thread": False},
+        )
 
 
 engine = get_engine()
